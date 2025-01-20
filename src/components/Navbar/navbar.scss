@@ -1,0 +1,47 @@
+.navbar {
+    height: 80px;
+    padding: 0 20px;
+    border-bottom: 2px solid black;
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 3%;
+        margin-right: 3%;
+    
+        .center{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+    
+            .item {
+                display: flex;
+                align-items: center;
+            }
+
+            .icon {
+                color: gray;
+                cursor: pointer;
+            }
+
+            .icon:hover {
+                color: black
+            }
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .icon {
+                color: gray;
+                cursor: pointer;
+            }
+
+            .icon:hover {
+                color: black
+            }
+        }
+    
+    }
+}

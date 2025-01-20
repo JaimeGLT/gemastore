@@ -1,0 +1,111 @@
+.hero {
+    display: flex;
+    padding: 0 3%;
+    gap: 4rem;
+    min-height: calc(100vh - 82px);
+
+    .left{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+
+        h1 {
+            font-size: 4rem;
+            margin: 0
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .buttons {
+
+            display: flex;
+            gap: 1.3rem;
+
+            button:first-child {
+                background-color: black;
+                color: white;
+                border: none;
+                max-width: 100px;
+                width: 100%;
+                min-height: 50px;
+                height: 100%;
+                cursor: pointer;
+            }
+    
+            button:nth-child(2){
+                background-color: white;
+                border: none;
+                max-width: 100px;
+                width: 100%;
+                min-height: 50px;
+                height: 100%;  
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        }
+
+
+
+    }
+    .right{
+        flex: 1;
+        display: flex;
+        max-height: calc(100vh - 82px);
+        height: 100%;
+        gap: 1rem;
+
+        .left {
+            display: grid;
+            justify-content: start;
+            overflow: hidden;
+            grid-template-rows: 0.5fr 1fr 1fr;
+            min-height: calc(100vh - 82px);
+            gap: 1rem;
+
+            .image:first-child {
+                border-radius: 0 0 5px 5px;
+            }
+
+            .image {
+                width: 100%;
+                z-index: -1;
+                overflow: hidden;
+                border-radius: 5px;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }   
+
+        }
+
+        .right {
+            display: grid;
+            justify-content: start;
+            overflow: hidden;
+            grid-template-rows: 1fr 1fr 0.5fr;
+            min-height: calc(100vh - 82px);
+            gap: 1rem;
+
+            .image:last-child {
+                border-radius: 5px 5px 0 0;
+            }
+
+            .image {
+                width: 100%;
+                z-index: -1;
+                overflow: hidden;
+                border-radius: 5px;
+                img {
+
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }  
+        }
+    }
+}
