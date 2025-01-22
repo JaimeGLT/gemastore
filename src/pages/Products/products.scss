@@ -1,0 +1,66 @@
+.products {
+    display: flex;
+    gap: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    .left {
+        flex: 1;
+        top: 50px;
+        position: sticky;
+        height: 100%;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+
+            .categories {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+            }
+
+            .filter-by-price {
+                display: flex;
+                align-items: center;
+            }
+
+            .sort {
+                display: flex;
+                flex-direction: column;
+
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+        }
+
+    }
+    .right {
+        flex: 3;
+        
+        h1 {
+            text-align: center;
+        }
+
+        .card-container {  
+            display: grid;
+            margin-top: 4rem;
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(200px, 1fr)
+                );
+            gap: 1rem;
+        }
+    }
+
+}

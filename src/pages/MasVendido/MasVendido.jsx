@@ -1,8 +1,8 @@
 import React from 'react'
 import Card from '../../components/Card/Card';
-import './products.scss'
+import './masVendido.scss'
 
-const Products = () => {
+const MasVendido = () => {
 
     const data = [
         '/images/img1.jpg',
@@ -21,7 +21,7 @@ const Products = () => {
     ];
 
     return (
-        <div className='products'>
+        <div className='masVendido'>
             <div className="left">
                 <div className='item'>
                     <h2>Categorias de productos</h2>
@@ -69,7 +69,7 @@ const Products = () => {
 
             <div className="right">
                 <div>
-                    <h1>Todos los Artículos</h1>
+                    <h1>Lo Más Vendido</h1>
                 </div>
                 <div className='card-container'>
                     {
@@ -86,4 +86,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default MasVendido

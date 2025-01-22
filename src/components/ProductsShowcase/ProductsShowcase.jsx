@@ -1,43 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import axios from 'axios'
 import './productsShowcase.scss'
+import { Link } from 'react-router-dom';
 
 const ProductsShowcase = () => {
 
     const [ startSlice, setStartSlice ] = useState(0);
     const [ finishSlice, setFinishSlice ] = useState(4);
 
-    const data = [
-        'https://placehold.co/80x80/000000/FFFFFF?text=1',
-        'https://placehold.co/80x80/000000/FFFFFF?text=2',
-        'https://placehold.co/80x80/000000/FFFFFF?text=3',
-        'https://placehold.co/80x80/000000/FFFFFF?text=4',
-        'https://placehold.co/80x80/000000/FFFFFF?text=5',
-        'https://placehold.co/80x80/000000/FFFFFF?text=6',
-        'https://placehold.co/80x80/000000/FFFFFF?text=7',
-        'https://placehold.co/80x80/000000/FFFFFF?text=8',
-        'https://placehold.co/80x80/000000/FFFFFF?text=9',
+    const [ products, setProducts ] = useState([]);
 
-      ];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                
+                const data = await axios.get(import.meta.env.VITE_API_URL+'/products?populate=*', {
+                    headers: {
+                        Authorization: 'bearer ' + import.meta.env.VITE_API_TOKEN
+                    }
+                })
+                console.log(data.data.data)
+                setProducts(data.data.data)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [])
 
     const prevImage = () => {
-        setStartSlice(startSlice <= 1 ? data.length - 4 : startSlice - 4);
-        setFinishSlice(startSlice <= 1 ? data.length : finishSlice - 4);
-        console.log(startSlice, finishSlice)
+        setStartSlice(startSlice <= 0 ? products.length - 4 : startSlice - 1);
+        setFinishSlice(startSlice <= 0 ? products.length : finishSlice - 1)
     };
-    
-    
-
 
     const nextImage = () => {
-        setStartSlice(startSlice >= data.length - 4 ? 0 : startSlice + 4);
-        setFinishSlice(startSlice >= data.length - 4 ? 4 : finishSlice + 4);
-    };
-    
-
-
-    
+        setStartSlice( startSlice < products.length - 4 ? startSlice + 1 : 0);
+        setFinishSlice( finishSlice < products.length ?  finishSlice + 1 : 4);
+        console.log(startSlice, finishSlice)
+    }; 
 
     return (
         <div className='productShowcase'>
@@ -48,15 +50,25 @@ const ProductsShowcase = () => {
 
             <div className="products">
                 {
-                    data.slice(startSlice, finishSlice).map((item, index) => (
-                        <img key={index} src={item}/>
+                    products.slice(startSlice, finishSlice).map((item, index) => (
+                        <Link className='link' to={item.id} key={item.id}>
+                            <div className='image'>
+                                <img src={import.meta.env.VITE_API_UPLOAD + item.img.url} className='mainImage'/>
+                                <img src={import.meta.env.VITE_API_UPLOAD + item.img2.url} className='secondImage'/>
+                            </div>
+                            <div>
+                                <h2>{item.titulo}</h2>
+                                <span>{item.precio}</span>
+                            </div>
+
+                        </Link>
                     ))
                 }
                 <div className="icon">
-                    <ArrowBackIcon onClick={prevImage}/>
+                    <ArrowBackIcon onClick={prevImage} className='item-icon'/>
                 </div>
                 <div className="icon2">
-                    <ArrowForwardIcon onClick={nextImage}/>
+                    <ArrowForwardIcon onClick={nextImage} className='item-icon'/>
                 </div>
             </div>
 

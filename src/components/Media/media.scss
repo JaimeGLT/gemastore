@@ -1,0 +1,60 @@
+.media {
+    display: flex;
+    margin: 15% 5% 80px 5%;
+    max-height: calc(100vh - 82px);
+    gap: 4rem;
+
+    .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+
+        h1 {
+            font-size: 44px;
+            margin: 0
+        }
+
+        .buttons {
+    
+            display: flex;
+            gap: 1.3rem;
+    
+            button:first-child {
+                background-color: black;
+                color: white;
+                border: none;
+                max-width: 100px;
+                width: 100%;
+                min-height: 50px;
+                height: 100%;
+                cursor: pointer;
+            }
+    
+            button:nth-child(2){
+                background-color: white;
+                border: none;
+                max-width: 100px;
+                width: 100%;
+                min-height: 50px;
+                height: 100%;  
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        }
+    }
+    .right {
+        flex: 1;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            height: 100%;
+            object-fit: cover
+        };
+
+    }
+
+}
