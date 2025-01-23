@@ -4,40 +4,23 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import axios from 'axios'
 import './productsShowcase.scss'
 import { Link } from 'react-router-dom';
+import useFetch from '../../hooks/useFetch';
 
 const ProductsShowcase = () => {
 
     const [ startSlice, setStartSlice ] = useState(0);
     const [ finishSlice, setFinishSlice ] = useState(4);
 
-    const [ products, setProducts ] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                
-                const data = await axios.get(import.meta.env.VITE_API_URL+'/products?populate=*', {
-                    headers: {
-                        Authorization: 'bearer ' + import.meta.env.VITE_API_TOKEN
-                    }
-                })
-                console.log(data.data.data)
-                setProducts(data.data.data)
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        fetchData();
-    }, [])
-
+    const { data, loading, error } = useFetch('/products?fields[0]=titulo&fields[1]=precio&populate[img][fields][0]=url&populate[img2][fields][1]=url');
+    
     const prevImage = () => {
-        setStartSlice(startSlice <= 0 ? products.length - 4 : startSlice - 1);
-        setFinishSlice(startSlice <= 0 ? products.length : finishSlice - 1)
+        setStartSlice(startSlice <= 0 ? data.length - 4 : startSlice - 1);
+        setFinishSlice(startSlice <= 0 ? data.length : finishSlice - 1)
     };
 
     const nextImage = () => {
-        setStartSlice( startSlice < products.length - 4 ? startSlice + 1 : 0);
-        setFinishSlice( finishSlice < products.length ?  finishSlice + 1 : 4);
+        setStartSlice( startSlice < data.length - 4 ? startSlice + 1 : 0);
+        setFinishSlice( finishSlice < data.length ?  finishSlice + 1 : 4);
         console.log(startSlice, finishSlice)
     }; 
 
@@ -50,7 +33,7 @@ const ProductsShowcase = () => {
 
             <div className="products">
                 {
-                    products.slice(startSlice, finishSlice).map((item, index) => (
+                    loading ? 'loading' : data?.slice(startSlice, finishSlice).map((item, index) => (
                         <Link className='link' to={item.id} key={item.id}>
                             <div className='image'>
                                 <img src={import.meta.env.VITE_API_UPLOAD + item.img.url} className='mainImage'/>

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import './navbar.scss'
 import Cart from '../Cart/Cart';
+import './navbar.scss'
 
 const Navbar = () => {
 
@@ -19,10 +19,10 @@ const Navbar = () => {
             </div>
             <div className="center">
                 <div className="item">
-                    <Link to='/recien-llegados' className='link'>Recién Llegados</Link>
+                    <Link to='/articulos-nuevos' className='link'>Recién Llegados</Link>
                 </div>
                 <div className="item">
-                    <Link to='/mas-vendido' className='link'>Lo más vendido</Link>
+                    <Link to='/ofertas-especiales' className='link'>Oferatas Especiales</Link>
                 </div>
                 <div className="item">
                     <Link to='/productos' className='link'>Artículos en venta</Link>

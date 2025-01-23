@@ -6,8 +6,8 @@ import Product from './pages/Product/Product';
 import Products from './pages/Products/Products'
 import RecienLlegados from './pages/RecienLlegados/RecienLlegados'
 import Footer from './components/Footer/Footer';
+import Descuento from './pages/Descuento/Descuento'
 import './App.scss'
-import MasVendido from './pages/MasVendido/MasVendido';
 
 const Layout = () => {
   return (
@@ -37,12 +37,12 @@ const router = createBrowserRouter([
         element: <Product />,
       },
       {
-        path: '/recien-llegados',
+        path: '/articulos-nuevos',
         element: <RecienLlegados />
       },
       {
-        path: '/mas-vendido',
-        element: <MasVendido />
+        path: '/ofertas-especiales',
+        element: <Descuento />
       }
     ],
   },

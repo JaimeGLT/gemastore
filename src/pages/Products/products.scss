@@ -51,16 +51,6 @@
         h1 {
             text-align: center;
         }
-
-        .card-container {  
-            display: grid;
-            margin-top: 4rem;
-            grid-template-columns: repeat(
-                auto-fill,
-                minmax(200px, 1fr)
-                );
-            gap: 1rem;
-        }
     }
 
 }
