@@ -5,6 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Cart from '../Cart/Cart';
 import './navbar.scss'
+import Colecciones from '../Colecciones/Colecciones';
 
 const Navbar = () => {
 
@@ -27,8 +28,8 @@ const Navbar = () => {
                 <div className="item">
                     <Link to='/productos' className='link'>Artículos en venta</Link>
                 </div>
-                <div className="item">
-                    <Link to='/' className='link'>Colecciones</Link>
+                <div className="item" >
+            <span className='link marca-colecciones'><Colecciones />Marcas y Colecciones</span>
                     <KeyboardArrowDownIcon className='icon'/>
                 </div>
             </div>

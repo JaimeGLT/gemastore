@@ -2,12 +2,18 @@ import React from 'react'
 import List from '../../components/List/List';
 import useFetch from '../../hooks/useFetch';
 import { useState } from 'react';
-import './descuento.scss'
+import { useParams } from 'react-router-dom';
+import Filter from '../../components/Filter/Filter';
+import './categorias.scss'
 
-const Descuento = () => {
+const Categorias = () => {
 
-    const { data, loading, error } = useFetch(`/categorias?fields[0]=titulo`);
-    const [ selectedCategories, setSelectedCategories ] = useState([]);
+    const  {nombre}  = useParams();
+    console.log(nombre);
+    
+    const { data, loading, error } = useFetch(`/sub-categorias`);
+
+    const [ selectedSubCats, setSelectedSubCats ] = useState([]);
     const [ maxPrice, setMaxPrice ] = useState(500);
     const [ valorRange, setValorRange] = useState(150);
     const [ sort, setSort ] = useState('desc');
@@ -16,11 +22,14 @@ const Descuento = () => {
         const value = e.target.value;
         const isChecked = e.target.checked;
 
-        setSelectedCategories(isChecked ? [...selectedCategories, value] : selectedCategories.filter(item => item !== value))
+        setSelectedSubCats(isChecked ? [...selectedSubCats, value] : selectedSubCats.filter(item => item !== value));
     }
 
+    console.log(data);
+    
+
     return (
-        <div className='descuento'>
+        <div className='categorias'>
             <div className="left">
                 <div className='item'>
                     <h2>Categorias de productos</h2>
@@ -78,10 +87,10 @@ const Descuento = () => {
 
             <div className="right">
                 <div>
-                    <h1>Ofertas Especiales</h1>
+                    <h1>{nombre?.toUpperCase()}</h1>
                 </div>
                 <div className='card-container'>       
-                    <List selectedCategories={selectedCategories} valorRange={valorRange} sort={sort}/>
+                    <Filter selectedSubCats={selectedSubCats} valorRange={valorRange} sort={sort}/>
                 </div>
 
             </div>
@@ -89,4 +98,4 @@ const Descuento = () => {
     )
 }
 
-export default Descuento;
+export default Categorias

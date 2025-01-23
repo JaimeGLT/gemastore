@@ -19,6 +19,19 @@
                 align-items: center;
             }
 
+
+            .marca-colecciones:hover {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                height: 82px;
+
+                .colecciones {
+                    display: flex;
+                }
+            }
+
             .icon {
                 color: gray;
                 cursor: pointer;
@@ -27,6 +40,8 @@
             .icon:hover {
                 color: black
             }
+
+
         }
         .right{
             display: flex;

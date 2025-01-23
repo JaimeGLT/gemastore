@@ -3,13 +3,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import axios from 'axios'
 import './productsShowcase.scss'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 const ProductsShowcase = () => {
 
     const [ startSlice, setStartSlice ] = useState(0);
     const [ finishSlice, setFinishSlice ] = useState(4);
+
+    const navigate = useNavigate();
 
     const { data, loading, error } = useFetch('/products?fields[0]=titulo&fields[1]=precio&populate[img][fields][0]=url&populate[img2][fields][1]=url');
     
@@ -21,7 +23,6 @@ const ProductsShowcase = () => {
     const nextImage = () => {
         setStartSlice( startSlice < data.length - 4 ? startSlice + 1 : 0);
         setFinishSlice( finishSlice < data.length ?  finishSlice + 1 : 4);
-        console.log(startSlice, finishSlice)
     }; 
 
     return (
@@ -34,8 +35,8 @@ const ProductsShowcase = () => {
             <div className="products">
                 {
                     loading ? 'loading' : data?.slice(startSlice, finishSlice).map((item, index) => (
-                        <Link className='link' to={item.id} key={item.id}>
-                            <div className='image'>
+                        <Link className='link' to={item.id} key={item.id} >
+                            <div className='image' onClick={() => {navigate(`/product/${item.id}`);     window.scrollTo(0, 0); }}>
                                 <img src={import.meta.env.VITE_API_UPLOAD + item.img.url} className='mainImage'/>
                                 <img src={import.meta.env.VITE_API_UPLOAD + item.img2.url} className='secondImage'/>
                             </div>

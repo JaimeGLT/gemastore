@@ -7,6 +7,7 @@ import Products from './pages/Products/Products'
 import RecienLlegados from './pages/RecienLlegados/RecienLlegados'
 import Footer from './components/Footer/Footer';
 import Descuento from './pages/Descuento/Descuento'
+import Categorias from './pages/Categorias/Categorias';
 import './App.scss'
 
 const Layout = () => {
@@ -43,7 +44,12 @@ const router = createBrowserRouter([
       {
         path: '/ofertas-especiales',
         element: <Descuento />
-      }
+      },
+      {
+        path: '/:cat/:nombre/:id',
+        element: <Categorias />
+      },
+
     ],
   },
 ]);

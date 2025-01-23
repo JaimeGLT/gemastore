@@ -5,6 +5,7 @@ import './product.scss'
 const Product = () => {
 
     const [ active, setActive ] = useState(0);
+    const [ quantity, setQuantity ] = useState(1);
 
     const data = [
         '/images/img2.jpg',
@@ -28,10 +29,10 @@ const Product = () => {
                         <span>Precio</span>
                         <p>$ 20</p>
                     </div>
-                    <div className='cart'>
+                    <div className='addCartItem'>
                         <div className='increase-decrease'>
                             <button>-</button>
-                            <span>1</span>
+                            <span>{quantity}</span>
                             <button>+</button>
                         </div>
                         
