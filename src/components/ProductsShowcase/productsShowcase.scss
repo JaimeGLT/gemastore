@@ -6,21 +6,85 @@
     margin: 13% 5% 80px 5%;
     gap: 3rem;
 
+    .presentation {
+
+        h1 {
+            font-size: 3rem;
+            font-family: 'Montserrat', serif;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #333;
+            font-family: 'Lato', sans-serif;
+            text-align: center
+        };
+    }
+
     .products {
         display: flex;
         width: 100%;
         justify-content: space-around;
         position: relative;
 
+
+
+        .info-price {
+
+            h2 {
+                color: black;
+                font-family: 'Nunito', serif;
+            }
+
+            .price {
+                display: flex;
+                gap: 1rem;
+                span {
+                    color: gray;
+                    font-family: 'Nunito', serif;
+                }
+
+                .last-price {
+                    text-decoration: line-through;
+                    color: gray;
+                }
+
+                span:nth-child(2){
+                    color: blue;
+                    font-weight: 500;
+                    font-family: 'Nunito', serif;
+                }
+
+            }
+        }
+
         .image {
             width: 200px;
             height: 300px;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            .nuevo {
+                position: absolute;
+                z-index: 100;
+                top: 5px;
+                left: 5px;
+                border: 1px solid rgba(6, 202, 6, 0.678);
+                background-color: rgba(43, 255, 0, 0.623);
+                padding: 3px;
+                font-family: 'Nunito', serif;
+                font-weight: 700;
+                color: white;
+            }
 
             &:hover {
                 .secondImage {
                     z-index: 2;
+                
                 }
             }
 
@@ -33,7 +97,10 @@
 
             .mainImage {
                 z-index: 1;
+
             }
+
+
 
         }
 
@@ -48,6 +115,8 @@
             padding: 5px;
             transition: all 0.3s ease;
             background-color: white;
+            border: 1px solid black;
+            z-index: 100;
         }
         
         
@@ -62,6 +131,8 @@
             padding: 5px;
             transition: all 0.3s ease;
             background-color: white;
+            border: 1px solid black;
+            z-index: 100;
         }
 
         .icon:hover {

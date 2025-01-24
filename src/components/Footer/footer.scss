@@ -17,7 +17,9 @@
 
             p {
                 font-size: 1rem;
+                font-family: 'Nunito', sans-serif;
             }
+
 
             .form {
                 margin-bottom: 10px;
@@ -43,6 +45,9 @@
 
             span {
                 font-size: 0.9rem;
+                font-family: 'Nunito', sans-serif;
+                color: gray;
+                font-weight: 700;
             };
 
         }
@@ -58,6 +63,7 @@
                 h3 {
                     display: flex;
                     font-size: 1.1rem;
+                    font-family: 'Lato', serif;
                 }
                 .container-link {
                     display: flex;
@@ -68,6 +74,8 @@
 
                     span {
                         font-size: 0.9rem;
+                        font-family: 'Nunito', sans-serif;
+                        color: gray
                     }
 
                 }
@@ -99,6 +107,11 @@
         justify-content: center;
         padding-top: 2rem;
         border-top: 1px solid black;
+
+        span {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
     }
 
 

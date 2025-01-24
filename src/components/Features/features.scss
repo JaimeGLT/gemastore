@@ -1,3 +1,4 @@
+
 .features {
     max-height: calc(100vh - 82px);
     display: flex;
@@ -13,12 +14,15 @@
         .item {
             flex: 1;
             h1 {
-                font-size: 2.6rem;
+                font-size: 2.3rem;
                 margin: 0;
+                font-family: 'Montserrat', serif;
             }
 
             p {
-
+                font-family: 'Nunito', sans-serif;
+                font-weight: 500;
+                color: gray
             }
         }
 
@@ -43,12 +47,14 @@
             }
 
             h2 {
-                font-size: 1.8rem;
-                
+                font-size: 1.4rem;
+                font-family: 'Montserrat', serif;
+                font-weight: 600;
             }
 
             p {
                 font-size: 0.9rem;
+                font-family: 'Nunito', serif;
             }
 
         }
@@ -67,6 +73,7 @@
             background-color: white;
             height: 40px;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .link {
@@ -74,6 +81,16 @@
             width: auto;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            transform: scale(1.02);
+            text-decoration: underline;
+        }
+
+        button:hover {
+            transform: scale(1.03);
         }
 
     }

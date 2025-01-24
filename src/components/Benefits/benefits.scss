@@ -19,31 +19,43 @@
             span {
                 font-size: 13px;
                 font-weight: bold;
+                font-family: 'Nunito';
             }
 
             h1 {
                 font-size: 2.5rem;
                 margin: 0;
+                font-family: 'Montserrat', serif;
             }
 
             p {
                 font-size: 1rem;
+                font-family: 'Nunito', sans-serif;
             };
 
         }
 
         .center {
             display: flex;
-            
-            .item {
-                flex: 1;
+            gap: 1rem;
 
+            .item {
+                padding: 5px;
+                flex: 1;
+                background: rgba(95, 87, 87, 0.15);
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.247);
+                backdrop-filter: blur( 3px );
+                -webkit-backdrop-filter: blur( 3px );
+                border-radius: 10px;
+                border: 1px solid rgba( 255, 255, 255, 0.18 );
                 h2 {
-                    font-size: 1.4  rem;
+                    font-size: 1.4rem;
+                    font-family: 'Lato', serif;
                 }
 
                 p {
                     font-size: 0.9rem;
+                    font-family: 'Nunito', sans-serif;
                 };
             }
         }
@@ -61,6 +73,7 @@
                 background-color: white;
                 height: 40px;
                 cursor: pointer;
+                transition: all 0.3s ease;
             }
 
             .link {
@@ -68,6 +81,16 @@
                 width: auto;
                 align-items: center;
                 gap: 10px;
+                transition: all 0.3s ease;
+            }
+
+            button:hover {
+                transform: scale(1.03);
+            }
+
+            .link:hover {
+                transform: scale(1.02);
+                text-decoration: underline;
             }
 
         }

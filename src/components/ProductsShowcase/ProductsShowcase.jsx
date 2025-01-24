@@ -13,8 +13,9 @@ const ProductsShowcase = () => {
 
     const navigate = useNavigate();
 
-    const { data, loading, error } = useFetch('/products?fields[0]=titulo&fields[1]=precio&populate[img][fields][0]=url&populate[img2][fields][1]=url');
+    const { data, loading, error } = useFetch('/products?fields[0]=titulo&fields[1]=esNuevo&fields[2]=precio&fields[3]=precio_con_descuento&populate[img][fields][0]=url&populate[img2][fields][1]=url');
     
+
     const prevImage = () => {
         setStartSlice(startSlice <= 0 ? data.length - 4 : startSlice - 1);
         setFinishSlice(startSlice <= 0 ? data.length : finishSlice - 1)
@@ -35,17 +36,23 @@ const ProductsShowcase = () => {
             <div className="products">
                 {
                     loading ? 'loading' : data?.slice(startSlice, finishSlice).map((item, index) => (
-                        <Link className='link' to={item.id} key={item.id} >
-                            <div className='image' onClick={() => {navigate(`/product/${item.id}`);     window.scrollTo(0, 0); }}>
-                                <img src={import.meta.env.VITE_API_UPLOAD + item.img.url} className='mainImage'/>
-                                <img src={import.meta.env.VITE_API_UPLOAD + item.img2.url} className='secondImage'/>
+                        <div className='link' key={item.id} >
+                            <div className='image' onClick={() => {navigate(`/product/${item.documentId}`);     window.scrollTo(0, 0); }}>
+                            {item.esNuevo && <span className='nuevo'>Nuevo</span>}
+                                <img src={import.meta.env.VITE_API_UPLOAD + item.img?.url} className='mainImage'/>
+                                <img src={import.meta.env.VITE_API_UPLOAD + item.img2?.url} className='secondImage'/>
                             </div>
-                            <div>
+                            <div className='info-price'>
                                 <h2>{item.titulo}</h2>
-                                <span>{item.precio}</span>
+                                <div className='price'>
+                                    <span className={item.precio_con_descuento > 0 ? 'last-price' : ''}>$ {item.precio}</span>
+                                    {
+                                        item.precio_con_descuento !== null && <span>$ {item.precio_con_descuento}</span>
+                                    }
+                                </div>
                             </div>
 
-                        </Link>
+                        </div>
                     ))
                 }
                 <div className="icon">

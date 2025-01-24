@@ -6,11 +6,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Cart from '../Cart/Cart';
 import './navbar.scss'
 import Colecciones from '../Colecciones/Colecciones';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
 
     const [ open, setOpen ] = useState(false);
-
+    const products = useSelector(item => item.cart.products)
 
   return (
     <div className='navbar'>
@@ -39,6 +40,7 @@ const Navbar = () => {
                 </div>
                 <div className="item">
                     <ShoppingCartIcon className='icon' onClick={() => setOpen(!open)}/>
+                    <span>{products.length}</span>
                 </div>
             </div>
         </div>

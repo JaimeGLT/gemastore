@@ -5,11 +5,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 const Card = ({ item }) => {
 
     const navigate = useNavigate();
-    const { id } = useParams();
 
     return (
         <div className='card' >
-            <div className='images' onClick={() => {navigate(`/product/${item.id}`);     window.scrollTo(0, 0);}}>
+            <div className='images' onClick={() => {navigate(`/product/${item.documentId}`);     window.scrollTo(0, 0);}}>
                 <img src={import.meta.env.VITE_API_UPLOAD + item.img.url} alt={item.titulo} className='mainImg'/>
                 {
                     item?.img2 !== null ?  

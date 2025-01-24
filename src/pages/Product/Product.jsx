@@ -1,42 +1,53 @@
 import React, { useState } from 'react'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './product.scss'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartReducer';
+import useFetch from '../../hooks/useFetch';
+import { useParams } from 'react-router-dom';
 
 const Product = () => {
 
-    const [ active, setActive ] = useState(0);
+    const [ active, setActive ] = useState('img');
     const [ quantity, setQuantity ] = useState(1);
+    
+    const { id } = useParams();
+    const dispatch = useDispatch();
 
-    const data = [
-        '/images/img2.jpg',
-        '/images/img5.jpg'
-    ]
-
+    const { data, loading, error } = useFetch(`/products/${id}?populate[img][fields][0]=url&populate[img2][fields][1]=url&fields[2]=esNuevo&fields[3]=titulo&fields[4]=precio&fields[5]=descripcion`);
+    console.log(data)
     return (
         <div className='product'>
             <div className="left">
                 <div className="top">
                     <div className="images">
-                        <img src={data[0]} onClick={() => setActive(0)} alt="" />
-                        <img src={data[1]} onClick={() => setActive(1)} alt="" />
+                        <img src={import.meta.env.VITE_API_UPLOAD + data?.img.url} onClick={() => setActive('img')} alt="" />
+                        <img src={import.meta.env.VITE_API_UPLOAD + data?.img2?.url} onClick={() => setActive('img2')} alt="" />
                     </div>
                     <div className="main-img">
-                        <img src={data[active]} alt="" />
+                        <img src={import.meta.env.VITE_API_UPLOAD + data?.[active]?.url} alt="" />
                     </div>
                 </div>
                 <div className="bottom">
                     <div className='price'>
                         <span>Precio</span>
-                        <p>$ 20</p>
+                        <p>$ {data?.precio}</p>
                     </div>
                     <div className='addCartItem'>
                         <div className='increase-decrease'>
-                            <button>-</button>
+                            <button onClick={() => setQuantity(quantity == 1 ? quantity : quantity - 1)}>-</button>
                             <span>{quantity}</span>
-                            <button>+</button>
+                            <button onClick={() => setQuantity(quantity + 1)}>+</button>
                         </div>
                         
-                        <div className="addCart">
+                        <div className="addCart" onClick={() => dispatch(addToCart({
+                            id: data.id,
+                            title: data.titulo,
+                            description: data.descripcion,
+                            img: data.img.url,
+                            price: data.precio,
+                            quantity
+                        }))}>
                             <AddShoppingCartIcon />
                             <span>Añadir al carrito</span>
                         </div>
@@ -46,11 +57,7 @@ const Product = () => {
             <div className="right">
                 <h2>Ropita</h2>
                 <h3>Descripcion</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, officia! Natus mollitia facilis, beatae nobis quo dignissimos enim eveniet? Reprehenderit dolor aspernatur delectus culpa tempora dignissimos aliquid officiis excepturi doloribus?
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, architecto esse inventore ea obcaecati nihil! Temporibus neque suscipit, labore in, mollitia, id natus saepe voluptatum ut quibusdam repudiandae aspernatur culpa.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Error ea totam animi quod placeat inventore dolore et at numquam, sunt ratione ex voluptates rem eos, quos magnam. Dolorum, recusandae libero!
-                </p>
+                <p>{data?.descripcion}</p>
                 <h3>Talla</h3>
                 <p>S, xl, x</p>
                 <h3>Marca</h3>

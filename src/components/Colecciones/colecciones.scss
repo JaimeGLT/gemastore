@@ -9,7 +9,7 @@
     display: none;
     background: rgba(187, 187, 187, 0.4);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 20px );
+    backdrop-filter: blur( 100px );
     -webkit-backdrop-filter: blur( 20px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
@@ -35,6 +35,10 @@
                     margin: 0;
                     font-size: 1rem;
                     text-align: start;
+                    font-family: 'Lato', serif;
+                    display: flex;
+                    text-align: start;
+                    justify-content: start;
                 }
 
                 p {
@@ -42,7 +46,8 @@
                     font-size: 0.8rem;
                     word-wrap: break-word;
                     text-align: start;
-                    color: gray
+                    color: #333;
+                    font-family: 'Nunito', sans-serif;
                 }
             };
 

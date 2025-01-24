@@ -2,6 +2,8 @@
     height: 80px;
     padding: 0 20px;
     border-bottom: 2px solid black;
+    
+
     .wrapper {
         display: flex;
         justify-content: space-between;
@@ -9,6 +11,12 @@
         margin-left: 3%;
         margin-right: 3%;
     
+        .left {
+            h1 {
+                font-family: 'Montserrat', serif;
+            }
+        }
+
         .center{
             display: flex;
             align-items: center;
@@ -17,6 +25,12 @@
             .item {
                 display: flex;
                 align-items: center;
+
+                .link {
+                    font-family: 'Nunito', sans-serif;
+                    font-weight: 500;
+                }
+
             }
 
 
@@ -47,6 +61,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            position: relative;
 
             .icon {
                 color: gray;
@@ -56,6 +71,21 @@
             .icon:hover {
                 color: black
             }
+
+            span {
+                font-size: 12px;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #2879fe;
+                color: white;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            };
         }
     
     }
