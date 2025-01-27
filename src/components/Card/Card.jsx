@@ -16,10 +16,14 @@ const Card = ({ item }) => {
                     : ''
                 }
             </div>
-            <div>
-                <h2>{item.titulo}</h2>
-                <p>{item.precio}</p>
-                <p>{item.precio_con_descuento}</p>
+            <div className='info'>
+                <div>
+                    <h2>{item.titulo}</h2>
+                </div>
+                <div className='price'>
+                    <p className={item.precio_con_descuento > 0 ? 'precio-antiguo': ''}>$ {item.precio}</p>
+                    <p>{item.precio_con_descuento > 0 && '$'} {item.precio_con_descuento}</p>
+                </div>
             </div>
         </div>
     )

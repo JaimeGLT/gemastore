@@ -1,92 +1,196 @@
 .navbar {
-    height: 80px;
-    padding: 0 20px;
-    border-bottom: 2px solid black;
-    
 
-    .wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 3%;
-        margin-right: 3%;
+    .desktop {
+        height: 80px;
+        padding: 0 20px;
+        border-bottom: 2px solid black;
+        
     
-        .left {
-            h1 {
-                font-family: 'Montserrat', serif;
-            }
-        }
-
-        .center{
+        .wrapper {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 2rem;
-    
-            .item {
-                display: flex;
-                align-items: center;
-
-                .link {
-                    font-family: 'Nunito', sans-serif;
-                    font-weight: 500;
+            margin-left: 3%;
+            margin-right: 3%;
+        
+            .left {
+                h1 {
+                    font-family: 'Montserrat', serif;
                 }
-
             }
-
-
-            .marca-colecciones:hover {
+    
+            .center{
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                text-align: center;
-                height: 82px;
-
-                .colecciones {
+                gap: 2rem;
+        
+                .item {
                     display: flex;
+                    align-items: center;
+    
+                    .link {
+                        font-family: 'Nunito', sans-serif;
+                        font-weight: 500;
+                    }
+    
                 }
+    
+    
+                .marca-colecciones:hover {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    height: 82px;
+    
+                    .colecciones {
+                        display: flex;
+                    }
+                }
+    
+                .icon {
+                    color: gray;
+                    cursor: pointer;
+                }
+    
+                .icon:hover {
+                    color: black
+                }
+    
+    
             }
-
-            .icon {
-                color: gray;
-                cursor: pointer;
-            }
-
-            .icon:hover {
-                color: black
-            }
-
-
-        }
-        .right{
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            position: relative;
-
-            .icon {
-                color: gray;
-                cursor: pointer;
-            }
-
-            .icon:hover {
-                color: black
-            }
-
-            span {
-                font-size: 12px;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background-color: #2879fe;
-                color: white;
-                position: absolute;
-                right: -10px;
-                top: -10px;
+            .right{
                 display: flex;
                 align-items: center;
-                justify-content: center;
-            };
+                gap: 1rem;
+                position: relative;
+    
+                .icon {
+                    color: gray;
+                    cursor: pointer;
+                }
+    
+                .icon:hover {
+                    color: black
+                }
+    
+                span {
+                    font-size: 12px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: #2879fe;
+                    color: white;
+                    position: absolute;
+                    right: -10px;
+                    top: -10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                };
+            }
+        
         }
+        @media (min-width: 0px) and (max-width: 767px) {
+            display: none;
+        }
+    
+        @media (min-width: 768px) and (max-width: 1024px) {
+            display: none;
+        } 
     
     }
+
+
+    .mobile {
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 2%;
+            margin-right: 2%;
+            height: 70px;
+            margin-bottom: 30px;
+
+            .left {
+                h1 {
+                    font-size: 25px;
+                }
+            }
+
+            .center {
+                display: none;
+            }
+
+            .active {
+                display: flex;
+                position: fixed;
+                overflow: hidden;
+                top: 0;
+                right: 0;
+                min-height: 100vh;
+                height: 100%;
+                width: 70vw;
+                background-color: rgb(19, 14, 14);
+                flex-direction: column;
+                color: whitesmoke;
+                gap: 1.5rem;
+                padding: 5px 10px;
+                overflow-y: auto;
+                z-index: 2;
+
+                .item:first-child {
+                    display: flex;
+                    justify-content: end;
+                    width: 100%;
+                    top: 5px;
+                    right: 0px;
+                    
+                    .icon {
+                        display: flex;
+                        color: white;
+                        font-size: 50px;
+                        z-index: 10000;
+                        margin-right: 4%;
+                        margin-top: 4%;
+                    }
+                }
+
+                .item {
+
+                    .link {
+                        font-family: 'Nunito', sans-serif;
+                        font-size: 20px;
+
+                    }
+
+                    .link:hover {
+                    }
+
+                    .mobile-text:hover {
+                        text-decoration: underline !important;
+                    }
+                }
+
+                .item:last-child {
+                    display: flex; 
+                    padding-bottom: 30px;
+                }
+            }   
+
+            .right {
+                display: flex;
+                gap: 20px;
+
+                .item {
+                    .icon {
+                        font-size: 30px;
+                    }
+                }
+
+            }
+        }
+    }
+
 }
+

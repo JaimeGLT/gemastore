@@ -19,7 +19,8 @@ const Colecciones = () => {
 
 
     return (
-        <div className="colecciones">
+        <div className='colecciones'>
+        <div className="colecciones-pc">
             <div className="item">
                 <h2>Marcas</h2>
                 {
@@ -53,6 +54,8 @@ const Colecciones = () => {
                     ))
                 }
             </div>
+        </div>
+
         </div>
     )
 }

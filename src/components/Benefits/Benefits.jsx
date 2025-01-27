@@ -24,7 +24,7 @@ const Benefits = () => {
                 </div>
                 <div className="bottom">
                     <button><Link to='/' className='link'></Link>Tienda</button>
-                    <Link to='/' className='link'>Saber más <KeyboardArrowRightIcon /></Link>
+                    <Link to='/' className='link enlace'>Saber más <KeyboardArrowRightIcon /></Link>
                 </div>
             </div>
             <div className="right">
