@@ -48,16 +48,34 @@
         .images {
 
             height: 165px;
-            width: 165px;
+            // width: 165px;
             img {
-                height: 165px;
-                width: 165px;
+                height: 100%;
+                width: 100%;
             }
 
         }
     }
         
     @media (min-width: 768px) and (max-width: 1024px) {
-        display: none;
+        .images {
+
+            // height: 185px;
+            // width: 185px;
+            img {
+                height: 100%;
+                width: 100%;
+            }
+
+        }
+
+        .info {
+            .price {
+
+                p {
+                    font-size: 25px ;
+                }
+            }
+        }
     }
 }

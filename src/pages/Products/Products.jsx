@@ -13,13 +13,6 @@ const Products = () => {
     const [ valorRange, setValorRange] = useState(150);
     const [ sort, setSort ] = useState('desc');
 
-    const handleChange = e => {
-        const value = e.target.value;
-        const isChecked = e.target.checked;
-
-        setSelectedCategories(isChecked ? [...selectedCategories, value] : selectedCategories.filter(item => item !== value))
-    }
-
     return (
         <div className='products'>
             <Filters 

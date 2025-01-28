@@ -14,24 +14,27 @@ const Product = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    const { data, loading, error } = useFetch(`/products/${id}?populate[img][fields][0]=url&populate[img2][fields][1]=url&fields[2]=esNuevo&fields[3]=titulo&fields[4]=precio&fields[5]=descripcion`);
+    const { data, loading, error } = useFetch(`/products/${id}?populate[img][fields][0]=url&populate[img2][fields][1]=url&fields[2]=esNuevo&fields[3]=titulo&fields[4]=precio&fields[5]=descripcion&fields[6]=precio_con_descuento&populate[marcas][fields][0]=titulo&populate[sub_categorias][fields][0]=titulo`);
     console.log(data)
     return (
         <div className='product'>
             <div className="left">
                 <div className="top">
                     <div className="images">
-                        <img src={import.meta.env.VITE_API_UPLOAD + data?.img.url} onClick={() => setActive('img')} alt="" />
-                        <img src={import.meta.env.VITE_API_UPLOAD + data?.img2?.url} onClick={() => setActive('img2')} alt="" />
+                        <img src={data?.img.url} onClick={() => setActive('img')} alt="" />
+                        <img src={data?.img2?.url} onClick={() => setActive('img2')} alt="" />
                     </div>
                     <div className="main-img">
-                        <img src={import.meta.env.VITE_API_UPLOAD + data?.[active]?.url} alt="" />
+                        <img src={data?.[active]?.url} alt="" />
                     </div>
                 </div>
                 <div className="bottom">
                     <div className='price'>
                         <span>Precio</span>
-                        <p>$ {data?.precio}</p>
+                        <div>
+                            <p>$ {data?.precio}</p>
+                            <p className='price-discount'>{data?.precio_con_descuento > 0 && '$ ' + data?.precio_con_descuento}</p>
+                        </div>
                     </div>
                     <div className='addCartItem'>
                         <div className='increase-decrease'>
@@ -55,15 +58,15 @@ const Product = () => {
                 </div>
             </div>
             <div className="right">
-                <h2>Ropita</h2>
+                <h2>{data?.titulo}</h2>
                 <h3>Descripcion</h3>
                 <p>{data?.descripcion}</p>
                 <h3>Talla</h3>
                 <p>S, xl, x</p>
                 <h3>Marca</h3>
-                <p>Shein, Zara</p>
+                <p>{data?.marcas.map(item => item?.titulo).join(' - ')}</p>
                 <h3>Etiquetas</h3>
-                <p>lorem, lorem, lorem.</p>
+                <p>{data?.sub_categorias.map(item => item?.titulo + ' ')?.join(' - ')}</p>
             </div>
         </div>
     )

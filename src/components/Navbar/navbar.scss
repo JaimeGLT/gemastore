@@ -42,9 +42,10 @@
                     justify-content: center;
                     text-align: center;
                     height: 82px;
-    
                     .colecciones {
-                        display: flex;
+                        .colecciones-pc {
+                            display: flex;
+                        }
                     }
                 }
     
@@ -190,6 +191,31 @@
 
             }
         }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .wrapper {
+
+                .center {
+                    .item {
+                        justify-content: center;
+                        .mobile-text {
+                            font-size: 27px;
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .marca-colecciones {
+                            font-size: 27px;
+                        }
+                    }
+                }
+            }
+        };
+
+        @media (min-width: 1025px)  {
+            display: none;
+        } 
+
     }
 
 }

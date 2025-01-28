@@ -22,7 +22,7 @@ const Cart = () => {
             {
                 products?.map(item => (
                     <div className="item" key={item.id}>
-                        <img src={import.meta.env.VITE_API_UPLOAD + item.img} alt="" />
+                        <img src={item.img} alt="" />
                         <div className="details">
                             <h1>{item.title}</h1>
                             <p>{item.description?.substring(0, 50)}</p>

@@ -14,7 +14,7 @@ const Media = () => {
                 </div>
             </div>
             <div className="right">
-                <img src="/images/img1.jpg" alt="" />
+                <img src="/images/img.jpg" alt="" />
             </div>
         </div>
     )

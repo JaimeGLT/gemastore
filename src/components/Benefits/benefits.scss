@@ -1,7 +1,7 @@
 .benefits {
     height: calc(100vh - 80px);
     display: flex;
-    padding: 80px 5%;
+    padding: 80px 5% 0px 5%;
     gap: 5rem;
 
     .left{
@@ -99,10 +99,13 @@
     .right{
         flex: 1;
         overflow: hidden;
+        justify-content: center;
+        display: flex;
+        align-items: center;
         img {
             width: 100%;
             border-radius: 5px;
-            object-fit: cover
+            object-fit: cover;
         };
     }
 

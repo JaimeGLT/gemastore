@@ -72,11 +72,11 @@ const ProductsShowcase = () => {
                 >
                   {item.esNuevo && <span className="nuevo">Nuevo</span>}
                   <img
-                    src={import.meta.env.VITE_API_UPLOAD + item.img?.url}
+                    src={item.img?.url}
                     className="mainImage"
                   />
                   <img
-                    src={import.meta.env.VITE_API_UPLOAD + item.img2?.url}
+                    src={item.img2?.url}
                     className="secondImage"
                   />
                 </div>

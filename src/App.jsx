@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <div className='app'>
       <Navbar />
-      <Outlet />
+      <Outlet /> 
       <Footer />
     </div>
   )
@@ -60,7 +60,7 @@ function App() {
 
   return (
       <div>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} /> 
       </div>
   )
 }

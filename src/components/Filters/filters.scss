@@ -1,9 +1,10 @@
 .filters {
+    // height: 100vh;
+    position: relative;
     .desktop {
         top: 50px;
         position: sticky;
-        height: 100%;
-    
+
             .item {
                 display: flex;
                 flex-direction: column;
@@ -70,13 +71,39 @@
 
             .active {
                 display: flex;
-            }
+            }       
 
-    
         @media (min-width: 768px) and (max-width: 1024px) {
-            // display: none;
-        }
-                    
+            .active {
+
+                .categories {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    div {
+                        label {
+                        font-size: 1.5rem !important;
+                    }
+                        
+                    }
+                }
+                span {
+                    font-size: 20px !important;
+                }
+
+                .sort {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        } 
+
+        @media (min-width: 1025px) {
+            display: none;
+        } 
 
     }
 

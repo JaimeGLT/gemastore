@@ -3,6 +3,7 @@ import List from '../../components/List/List';
 import useFetch from '../../hooks/useFetch';
 import { useState } from 'react';
 import './recienLlegados.scss'
+import Filters from '../../components/Filters/Filters';
 
 const RecienLlegados = () => {
 
@@ -12,16 +13,9 @@ const RecienLlegados = () => {
     const [ valorRange, setValorRange] = useState(150);
     const [ sort, setSort ] = useState('desc');
 
-    const handleChange = e => {
-        const value = e.target.value;
-        const isChecked = e.target.checked;
-
-        setSelectedCategories(isChecked ? [...selectedCategories, value] : selectedCategories.filter(item => item !== value))
-    }
-
     return (
         <div className='recienLlegados'>
-            <div className="left">
+            {/* <div className="left">
                 <div className='item'>
                     <h2>Categorias de productos</h2>
                     <div className='categories'>
@@ -74,7 +68,17 @@ const RecienLlegados = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Filters 
+                data={data} 
+                loading={loading} 
+                selectedCategories={selectedCategories} 
+                setSelectedCategories={setSelectedCategories}
+                valorRange={valorRange}
+                setValorRange={setValorRange}
+                maxPrice={maxPrice}
+                setSort={setSort}
+            />
 
             <div className="right">
                 <div>
