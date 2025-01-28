@@ -1,6 +1,6 @@
 import React from 'react'
-import './card.scss'
 import { useNavigate, useParams } from 'react-router-dom'
+import './Card.scss'
 
 const Card = ({ item }) => {
 
