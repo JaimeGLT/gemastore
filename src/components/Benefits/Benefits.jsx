@@ -28,7 +28,7 @@ const Benefits = () => {
                 </div>
             </div>
             <div className="right">
-                <img src="/images/img.jpg" alt="" />
+                <img src="/images/img2.jpg" alt="" />
             </div>
         </div>
     )
